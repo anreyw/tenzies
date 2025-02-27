@@ -25,10 +25,18 @@ export default function Home() {
   const dice = diceNums.map(num => (
     <Die value={num} />
   ))
+
+  function handleClick() {
+    setDiceNums(generateNums())
+  }
   
   return (
-    <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-      {dice}
-    </div>
+    <main className="bg-zinc-100 size-4/5 rounded-lg flex flex-col items-center justify-center gap-8">
+      <h1 className="text-3xl font-bold">Tenzies</h1>
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+	{dice}
+      </div>
+      <button onClick={handleClick} className="bg-indigo-600 px-6 py-2 rounded-lg text-white text-2xl">Roll</button>
+    </main>
   )
 }
