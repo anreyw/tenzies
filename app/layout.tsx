@@ -19,7 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={geist.className}>
       <body className="flex items-center justify-center h-screen bg-slate-800">
-	<main className="bg-zinc-100 size-4/5 rounded-lg flex items-center justify-center">
+	<main className="bg-zinc-100 size-4/5 rounded-lg flex flex-col items-center justify-center gap-8">
+	  <h1 className="text-3xl font-bold">Tenzies</h1>
           {children}
 	</main>
       </body>
