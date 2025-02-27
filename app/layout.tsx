@@ -18,8 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={geist.className}>
-      <body>
-        {children}
+      <body className="flex items-center justify-center h-screen bg-slate-800">
+	<main className="bg-zinc-100 size-4/5 rounded-lg flex items-center justify-center">
+          {children}
+	</main>
       </body>
     </html>
   );
