@@ -2,6 +2,7 @@
 
 import Die from '@/app/ui/die'
 import { useState } from 'react'
+import { nanoid } from 'nanoid'
 
 export default function Dice() {
   const [diceNums, setDiceNums] = useState(generateNums())
@@ -10,12 +11,14 @@ export default function Dice() {
     return Array.from({length: 10},
       () => ({
 	value: Math.ceil(Math.random() * 5),
-	isHeld: false })
+	isHeld: false,
+	id: nanoid()
+      })
     )
   }
 
   const dice = diceNums.map(die => (
-    <Die value={die.value} />
+    <Die value={die.value} key={die.id} />
   ))
 
   function handleClick() {
