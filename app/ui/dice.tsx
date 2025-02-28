@@ -30,7 +30,7 @@ export default function Dice() {
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
 	{dice}
       </div>
-      <button onClick={handleClick} className="bg-indigo-600 px-6 py-2 rounded-lg text-white text-2xl">Roll</button>
+      <button onClick={handleClick} className="bg-indigo-600 px-6 py-2 rounded-lg text-white text-2xl shadow-md">Roll</button>
     </>
   )
 }
