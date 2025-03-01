@@ -11,14 +11,17 @@ export default function Dice() {
     return Array.from({length: 10},
       () => ({
 	value: Math.ceil(Math.random() * 5),
-	isHeld: true,
+	isHeld: false,
 	id: nanoid()
       })
     )
   }
 
+  // Flips the isHeld property on the die in diceNums
   function hold(id: string) {
-    console.log(id)
+    setDiceNums(prev => prev.map(die =>
+      die.id === id? {...die, isHeld: !die.isHeld } : die
+    ))
   }
 
   const dice = diceNums.map(die => (
