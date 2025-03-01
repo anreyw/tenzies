@@ -7,6 +7,13 @@ import { nanoid } from 'nanoid'
 export default function Dice() {
   const [diceNums, setDiceNums] = useState(generateNums())
 
+  if (
+    diceNums.every(die => die.isHeld)
+      && diceNums.every(die => die.value === diceNums[0].value)
+  ) {
+    console.log("Game won!")
+  }
+
   function generateNums() {
     return Array.from({length: 10},
       () => ({
