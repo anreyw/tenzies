@@ -1,5 +1,6 @@
 interface DieProps {
   value: number;
+  isHeld: boolean;
 }
 
 export default function Die(props: DieProps) {

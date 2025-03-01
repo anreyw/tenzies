@@ -18,7 +18,7 @@ export default function Dice() {
   }
 
   const dice = diceNums.map(die => (
-    <Die value={die.value} key={die.id} />
+    <Die value={die.value} isHeld={die.isHeld} key={die.id} />
   ))
 
   function handleClick() {
