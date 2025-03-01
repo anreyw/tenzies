@@ -11,7 +11,7 @@ export default function Dice() {
     return Array.from({length: 10},
       () => ({
 	value: Math.ceil(Math.random() * 5),
-	isHeld: false,
+	isHeld: true,
 	id: nanoid()
       })
     )
