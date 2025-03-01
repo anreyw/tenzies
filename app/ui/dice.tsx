@@ -17,11 +17,20 @@ export default function Dice() {
     )
   }
 
+  function hold(id: string) {
+    console.log(id)
+  }
+
   const dice = diceNums.map(die => (
-    <Die value={die.value} isHeld={die.isHeld} key={die.id} />
+    <Die
+      value={die.value}
+      isHeld={die.isHeld}
+      key={die.id}
+      hold={() => hold(die.id)}
+    />
   ))
 
-  function handleClick() {
+  function rollDice() {
     setDiceNums(generateNums())
   }
   
@@ -30,7 +39,7 @@ export default function Dice() {
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
 	{dice}
       </div>
-      <button onClick={handleClick} className="bg-indigo-600 px-6 py-2 rounded-lg text-white text-2xl shadow-md">Roll</button>
+      <button onClick={rollDice} className="bg-indigo-600 px-6 py-2 rounded-lg text-white text-2xl shadow-md">Roll</button>
     </>
   )
 }

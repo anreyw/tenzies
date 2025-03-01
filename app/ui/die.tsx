@@ -3,6 +3,7 @@ import clsx from 'clsx'
 interface DieProps {
   value: number;
   isHeld: boolean;
+  hold: () => void;
 }
 
 export default function Die(props: DieProps) {
@@ -11,7 +12,11 @@ export default function Die(props: DieProps) {
     props.isHeld ? 'bg-green-300' : 'bg-white')
   
   return (
-    <button className={dieClasses}
-    >{props.value}</button>  
+    <button
+      className={dieClasses}
+      onClick={props.hold}
+    >
+      {props.value}
+    </button>  
   )
 }
