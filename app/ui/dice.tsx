@@ -10,13 +10,22 @@ export default function Dice() {
   function generateNums() {
     return Array.from({length: 10},
       () => ({
-	value: Math.ceil(Math.random() * 5),
+	value: Math.ceil(Math.random() * 6),
 	isHeld: false,
 	id: nanoid()
       })
     )
   }
 
+  function rollDice() {
+    setDiceNums(prev => prev.map(die =>
+      die.isHeld ? die : {
+	...die,
+	value: Math.ceil(Math.random() * 6)
+      }
+    ))
+  }
+  
   // Flips the isHeld property on the die in diceNums
   function hold(id: string) {
     setDiceNums(prev => prev.map(die =>
@@ -33,10 +42,6 @@ export default function Dice() {
     />
   ))
 
-  function rollDice() {
-    setDiceNums(generateNums())
-  }
-  
   return (
     <>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
