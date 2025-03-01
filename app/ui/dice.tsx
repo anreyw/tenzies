@@ -7,13 +7,9 @@ import { nanoid } from 'nanoid'
 export default function Dice() {
   const [diceNums, setDiceNums] = useState(generateNums())
 
-  if (
-    diceNums.every(die => die.isHeld)
-      && diceNums.every(die => die.value === diceNums[0].value)
-  ) {
-    console.log("Game won!")
-  }
-
+  const gameWon = diceNums.every(die => die.isHeld)
+    && diceNums.every(die => die.value === diceNums[0].value)
+  
   function generateNums() {
     return Array.from({length: 10},
       () => ({
@@ -54,7 +50,8 @@ export default function Dice() {
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
 	{dice}
       </div>
-      <button onClick={rollDice} className="bg-indigo-600 px-6 py-2 rounded-lg text-white text-2xl shadow-md">Roll</button>
+      <button onClick={rollDice} className="bg-indigo-600 px-6 py-2 rounded-lg text-white text-2xl shadow-md">								{gameWon ? "New Game" : "Roll"}
+      </button>
     </>
   )
 }
