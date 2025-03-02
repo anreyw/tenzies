@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid'
 import Confetti from 'react-confetti'
 
 export default function Dice() {
-  const [diceNums, setDiceNums] = useState(generateNums())
+  const [diceNums, setDiceNums] = useState(() => generateNums())
 
   const gameWon = diceNums.every(die => die.isHeld)
     && diceNums.every(die => die.value === diceNums[0].value)
