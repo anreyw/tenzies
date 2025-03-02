@@ -3,6 +3,7 @@
 import Die from '@/app/ui/die'
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
+import Confetti from 'react-confetti'
 
 export default function Dice() {
   const [diceNums, setDiceNums] = useState(generateNums())
@@ -47,6 +48,7 @@ export default function Dice() {
 
   return (
     <>
+      {gameWon && <Confetti />}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
 	{dice}
       </div>
