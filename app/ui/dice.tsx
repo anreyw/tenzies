@@ -22,12 +22,16 @@ export default function Dice() {
   }
 
   function rollDice() {
-    setDiceNums(prev => prev.map(die =>
-      die.isHeld ? die : {
-	...die,
-	value: Math.ceil(Math.random() * 6)
-      }
-    ))
+    if (gameWon) {
+      setDiceNums(generateNums())
+    } else {
+      setDiceNums(prev => prev.map(die =>
+	die.isHeld ? die : {
+	  ...die,
+	  value: Math.ceil(Math.random() * 6)
+	}
+      ))      
+    }
   }
   
   // Flips the isHeld property on the die in diceNums
